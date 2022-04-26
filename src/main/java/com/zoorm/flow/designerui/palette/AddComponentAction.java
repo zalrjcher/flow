@@ -15,10 +15,10 @@ import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiFile;
 import com.intellij.psi.search.ProjectScope;
 import com.intellij.psi.util.PsiTreeUtil;
-import com.intellij.uiDesigner.GuiFormFileType;
-import com.intellij.uiDesigner.UIDesignerBundle;
 import com.intellij.uiDesigner.compiler.Utils;
 import com.intellij.uiDesigner.core.GridConstraints;
+import com.zoorm.flow.common.GuiFlowFileType;
+import com.zoorm.flow.common.UIDesignerBundle;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -121,7 +121,7 @@ public class AddComponentAction extends AnAction implements UpdateInBackground {
 
   @Nullable
   private static PsiElement findElementToAdd(final PsiFile psiFile) {
-    if (psiFile.getFileType().equals(GuiFormFileType.INSTANCE)) {
+    if (psiFile.getFileType().equals(GuiFlowFileType.INSTANCE)) {
       return psiFile;
     }
     else if (psiFile.getFileType().equals(JavaFileType.INSTANCE)) {

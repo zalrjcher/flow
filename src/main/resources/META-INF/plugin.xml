@@ -5,6 +5,7 @@
     <vendor>zalrjcher</vendor>
 
     <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.java</depends>
 
     <extensions defaultExtensionNs="com.intellij">
         <applicationService serviceImplementation="com.github.zalrjcher.flow.services.MyApplicationService"/>

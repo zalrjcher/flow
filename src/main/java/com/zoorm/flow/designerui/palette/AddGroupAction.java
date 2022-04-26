@@ -8,7 +8,7 @@ import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.actionSystem.CommonDataKeys;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.ui.Messages;
-import com.intellij.uiDesigner.UIDesignerBundle;
+import com.zoorm.flow.common.UIDesignerBundle;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;

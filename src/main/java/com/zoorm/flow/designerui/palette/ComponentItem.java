@@ -2,7 +2,6 @@
 package com.zoorm.flow.designerui.palette;
 
 import com.intellij.ide.dnd.DnDDragStartBean;
-import com.intellij.ide.palette.PaletteItem;
 import com.intellij.openapi.actionSystem.ActionGroup;
 import com.intellij.openapi.actionSystem.ActionManager;
 import com.intellij.openapi.actionSystem.CommonDataKeys;
@@ -26,6 +25,7 @@ import com.intellij.uiDesigner.core.GridConstraints;
 import com.intellij.uiDesigner.lw.StringDescriptor;
 import com.intellij.uiDesigner.propertyInspector.IntrospectedProperty;
 import com.intellij.uiDesigner.radComponents.RadAtomicComponent;
+import com.zoorm.flow.palette.PaletteItem;
 import icons.UIDesignerIcons;
 import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
