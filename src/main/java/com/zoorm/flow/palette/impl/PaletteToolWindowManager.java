@@ -11,8 +11,8 @@ import com.intellij.openapi.wm.ToolWindowAnchor;
 import com.intellij.openapi.wm.ToolWindowManager;
 import com.intellij.ui.content.Content;
 import com.intellij.ui.content.ContentManager;
-import com.intellij.uiDesigner.AbstractToolWindowManager;
-import com.intellij.uiDesigner.designSurface.GuiEditor;
+//import com.intellij.uiDesigner.designSurface.GuiEditor;
+import com.zoorm.flow.uiDesigner.AbstractToolWindowManager;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -26,23 +26,30 @@ public class PaletteToolWindowManager extends AbstractToolWindowManager {
     super(project);
   }
 
-  public static PaletteWindow getInstance(GuiEditor designer) {
-    PaletteToolWindowManager manager = getInstance(designer.getProject());
-    if (manager.isEditorMode()) {
-      return (PaletteWindow)manager.getContent(designer);
-    }
-    if (manager.myToolWindowPanel == null) {
-      manager.initToolWindow();
-    }
+//  public static PaletteWindow getInstance(/**GuiEditor designer**/) {
+//    PaletteToolWindowManager manager = getInstance();
+//    if (manager.isEditorMode()) {
+//      return (PaletteWindow)manager.getContent(designer);
+//    }
+//    if (manager.myToolWindowPanel == null) {
+//      manager.initToolWindow();
+//    }
+//    return manager.myToolWindowPanel;
+//  }
+
+  public static PaletteWindow getInstance1(Project project){
+    PaletteToolWindowManager manager = getInstance(project);
+    manager.initToolWindow();
     return manager.myToolWindowPanel;
   }
-
   public static PaletteToolWindowManager getInstance(Project project) {
+    System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAA"+project.toString());
     return project.getService(PaletteToolWindowManager.class);
   }
 
   @Override
   protected void initToolWindow() {
+    System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAinitToolWindowAAAAAAAAAAAAAA");
     myToolWindowPanel = new PaletteWindow(myProject);
     Disposer.register(this, () -> myToolWindowPanel.dispose());
 
@@ -62,7 +69,7 @@ public class PaletteToolWindowManager extends AbstractToolWindowManager {
 
   @Override
   protected void updateToolWindow(@Nullable DesignerEditorPanelFacade designer) {
-    myToolWindowPanel.refreshPaletteIfChanged((GuiEditor)designer);
+//    myToolWindowPanel.refreshPaletteIfChanged((GuiEditor)designer);
 
     if (designer == null) {
       myToolWindow.setAvailable(false);
@@ -81,7 +88,7 @@ public class PaletteToolWindowManager extends AbstractToolWindowManager {
   @Override
   protected LightToolWindow createContent(@NotNull DesignerEditorPanelFacade designer) {
     PaletteWindow palettePanel = new PaletteWindow(myProject);
-    palettePanel.refreshPaletteIfChanged((GuiEditor)designer);
+//    palettePanel.refreshPaletteIfChanged((GuiEditor)designer);
 
     return createContent(designer,
                          palettePanel,

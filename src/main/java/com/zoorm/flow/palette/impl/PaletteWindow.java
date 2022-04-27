@@ -11,7 +11,7 @@ import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.ui.PopupHandler;
 import com.intellij.ui.ScrollPaneFactory;
 import com.intellij.ui.components.JBTabbedPane;
-import com.intellij.uiDesigner.designSurface.GuiEditor;
+//import com.intellij.uiDesigner.designSurface.GuiEditor;
 import com.intellij.util.ArrayUtilRt;
 import com.zoorm.flow.palette.PaletteGroup;
 import com.zoorm.flow.palette.PaletteItem;
@@ -59,7 +59,7 @@ public class PaletteWindow extends JPanel implements LightToolWindowContent, Dat
     }
   };
 
-  private GuiEditor myDesigner;
+//  private GuiEditor myDesigner;
 
   public PaletteWindow(Project project) {
     myProject = project;
@@ -97,19 +97,19 @@ public class PaletteWindow extends JPanel implements LightToolWindowContent, Dat
     }
   }
 
-  public void refreshPaletteIfChanged(@Nullable GuiEditor designer) {
-    removePaletteProviderListener();
-    myDesigner = designer;
-    if (designer != null) {
-      addPaletteProviderListener();
-    }
-
-    VirtualFile file = designer == null ? null : designer.getFile();
-    Set<PaletteGroup> currentGroups = new HashSet<>(collectCurrentGroups(file));
-    if (!currentGroups.equals(myGroups)) {
-      refreshPalette(file);
-    }
-  }
+//  public void refreshPaletteIfChanged(@Nullable GuiEditor designer) {
+//    removePaletteProviderListener();
+//    myDesigner = designer;
+//    if (designer != null) {
+//      addPaletteProviderListener();
+//    }
+//
+//    VirtualFile file = designer == null ? null : designer.getFile();
+//    Set<PaletteGroup> currentGroups = new HashSet<>(collectCurrentGroups(file));
+//    if (!currentGroups.equals(myGroups)) {
+//      refreshPalette(file);
+//    }
+//  }
 
   private void refreshPalette(@Nullable VirtualFile selectedFile) {
     for (PaletteGroupHeader groupHeader : myGroupHeaders) {
@@ -199,7 +199,7 @@ public class PaletteWindow extends JPanel implements LightToolWindowContent, Dat
       group.getComponentList().clearSelection();
     }
     ListSelectionEvent event = new ListSelectionEvent(this, -1, -1, false);
-    notifySelectionChanged(event);
+//    notifySelectionChanged(event);
   }
 
   @Nullable
@@ -271,27 +271,27 @@ public class PaletteWindow extends JPanel implements LightToolWindowContent, Dat
   }
 
   void notifyKeyEvent(final KeyEvent e) {
-    if (myDesigner != null) {
-      if (e.getID() == KeyEvent.KEY_PRESSED) {
-        myDesigner.paletteKeyPressed(e);
-      }
-      else if (e.getID() == KeyEvent.KEY_RELEASED) {
-        myDesigner.paletteKeyReleased(e);
-      }
-    }
+//    if (myDesigner != null) {
+//      if (e.getID() == KeyEvent.KEY_PRESSED) {
+//        myDesigner.paletteKeyPressed(e);
+//      }
+//      else if (e.getID() == KeyEvent.KEY_RELEASED) {
+//        myDesigner.paletteKeyReleased(e);
+//      }
+//    }
   }
 
-  void notifyDropActionChanged(int gestureModifiers) {
-    if (myDesigner != null) {
-      myDesigner.paletteDropActionChanged(gestureModifiers);
-    }
-  }
+//  void notifyDropActionChanged(int gestureModifiers) {
+//    if (myDesigner != null) {
+//      myDesigner.paletteDropActionChanged(gestureModifiers);
+//    }
+//  }
 
-  void notifySelectionChanged(final ListSelectionEvent event) {
-    if (myDesigner != null) {
-      myDesigner.paletteValueChanged(event);
-    }
-  }
+//  void notifySelectionChanged(final ListSelectionEvent event) {
+//    if (myDesigner != null) {
+//      myDesigner.paletteValueChanged(event);
+//    }
+//  }
 
   private class MyListSelectionListener implements ListSelectionListener {
     @Override
@@ -308,14 +308,14 @@ public class PaletteWindow extends JPanel implements LightToolWindowContent, Dat
           break;
         }
       }
-      notifySelectionChanged(e);
+//      notifySelectionChanged(e);
     }
   }
 
   private class MyPropertyChangeListener implements PropertyChangeListener {
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
-      refreshPalette(myDesigner.getFile());
+//      refreshPalette(myDesigner.getFile());
     }
   }
 

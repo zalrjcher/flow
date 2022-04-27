@@ -4,16 +4,16 @@
     <name>flow</name>
     <vendor>zalrjcher</vendor>
 
-    <depends>com.intellij.modules.platform</depends>
+<!--    <depends>com.intellij.modules.platform</depends>-->
     <depends>com.intellij.java</depends>
 
     <extensions defaultExtensionNs="com.intellij">
-        <applicationService serviceImplementation="com.github.zalrjcher.flow.services.MyApplicationService"/>
-        <projectService serviceImplementation="com.github.zalrjcher.flow.services.MyProjectService"/>
+        <projectService serviceImplementation="com.zoorm.flow.palette.impl.PaletteToolWindowManager" />
+        <projectService serviceImplementation="com.zoorm.flow.services.MyProjectService"/>
     </extensions>
 
     <applicationListeners>
-        <listener class="com.github.zalrjcher.flow.listeners.MyProjectManagerListener"
+        <listener class="com.zoorm.flow.listeners.MyProjectManagerListener"
                   topic="com.intellij.openapi.project.ProjectManagerListener"/>
     </applicationListeners>
 </idea-plugin>

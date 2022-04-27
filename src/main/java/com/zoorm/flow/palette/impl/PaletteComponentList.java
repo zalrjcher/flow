@@ -386,7 +386,7 @@ public final class PaletteComponentList extends JBList {
 
     @Override
     public void dropActionChanged(final int gestureModifiers) {
-      myPalette.notifyDropActionChanged(gestureModifiers);
+//      myPalette.notifyDropActionChanged(gestureModifiers);
     }
   }
 }
